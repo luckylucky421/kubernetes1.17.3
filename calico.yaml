@@ -3,7 +3,7 @@
 # This manifest includes the following component versions:
 #   calico/node:v3.5.3
 #   calico/cni:v3.5.3
-​
+
 # This ConfigMap is used to configure a self-hosted Calico installation.
 kind: ConfigMap
 apiVersion: v1
@@ -15,10 +15,10 @@ data:
   typha_service_name: "none"
   # Configure the Calico backend to use.
   calico_backend: "bird"
-​
+
   # Configure the MTU to use
   veth_mtu: "1440"
-​
+
   # The CNI network configuration to install on each node.  The special
   # values in this config will be automatically populated.
   cni_network_config: |-
@@ -50,9 +50,9 @@ data:
         }
       ]
     }
-​
+
 ---
-​
+
 # This manifest installs the calico/node container, as well
 # as the Calico CNI plugins and network config on
 # each master and worker node in a Kubernetes cluster.
@@ -249,17 +249,17 @@ spec:
           hostPath:
             path: /etc/cni/net.d
 ---
-​
+
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: calico-node
   namespace: kube-system
-​
+
 ---
 # Create all the CustomResourceDefinitions needed for
 # Calico policy and networking mode.
-​
+
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
@@ -273,7 +273,7 @@ spec:
     plural: felixconfigurations
     singular: felixconfiguration
 ---
-​
+
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
@@ -286,9 +286,9 @@ spec:
     kind: BGPPeer
     plural: bgppeers
     singular: bgppeer
-​
+
 ---
-​
+
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
@@ -301,9 +301,9 @@ spec:
     kind: BGPConfiguration
     plural: bgpconfigurations
     singular: bgpconfiguration
-​
+
 ---
-​
+
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
@@ -316,9 +316,9 @@ spec:
     kind: IPPool
     plural: ippools
     singular: ippool
-​
+
 ---
-​
+
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
@@ -331,9 +331,9 @@ spec:
     kind: HostEndpoint
     plural: hostendpoints
     singular: hostendpoint
-​
+
 ---
-​
+
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
@@ -346,9 +346,9 @@ spec:
     kind: ClusterInformation
     plural: clusterinformations
     singular: clusterinformation
-​
+
 ---
-​
+
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
@@ -361,9 +361,9 @@ spec:
     kind: GlobalNetworkPolicy
     plural: globalnetworkpolicies
     singular: globalnetworkpolicy
-​
+
 ---
-​
+
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
@@ -376,9 +376,9 @@ spec:
     kind: GlobalNetworkSet
     plural: globalnetworksets
     singular: globalnetworkset
-​
+
 ---
-​
+
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
@@ -392,7 +392,7 @@ spec:
     plural: networkpolicies
     singular: networkpolicy
 ---
-​
+
 # Include a clusterrole for the calico-node DaemonSet,
 # and bind it to the calico-node serviceaccount.
 kind: ClusterRole
