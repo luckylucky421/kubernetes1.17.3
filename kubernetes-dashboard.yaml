@@ -190,7 +190,7 @@ spec:
           image: kubernetesui/dashboard:v2.0.0-beta8
           imagePullPolicy: Always
           ports:
-            - containerPort: 8443
+            - containerPort: IfNotPresent
               protocol: TCP
           args:
             - --auto-generate-certificates
