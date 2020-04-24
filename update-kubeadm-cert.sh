@@ -1,4 +1,5 @@
 #!/bin/bash
+#脚本转载自https://github.com/yuyicai/update-kube-cert
 
 set -o errexit
 set -o pipefail
