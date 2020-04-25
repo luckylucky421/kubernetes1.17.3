@@ -188,7 +188,7 @@ spec:
       containers:
         - name: kubernetes-dashboard
           image: kubernetesui/dashboard:v2.0.0-beta8
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: IfNotPresent
               protocol: TCP
@@ -272,6 +272,7 @@ spec:
       containers:
         - name: dashboard-metrics-scraper
           image: kubernetesui/metrics-scraper:v1.0.1
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8000
               protocol: TCP
